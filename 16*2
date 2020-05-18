@@ -1,0 +1,38 @@
+/*
+debemos descargar una libreria llamada LiquidCrystal en arduino 
+cableado:
+      LCD         ARDUINO 
+
+led catodo =     GND
+led anodo =      5V
+DB7 =                 7
+DB6 =                 6
+DB5 =                 5
+DB4 =                 4
+E(ACTIVAR)=       3
+LECTURA=         GND
+REGISTRO=         2
+POTENCIA=       5V
+TIERRA=             GND
+
+
+el contraste del LCD se conecta a un potenciometro 
+*/
+
+// icluimos la libreria 
+#include <LiquidCrystal.h>
+// definimos los pines conectados del lcd al arduino:
+LiquidCrystal lcd = LiquidCrystal(2, 3, 4, 5, 6, 7);
+void setup() {
+  // espesificamos el numero de colubnas en el lcd 
+  lcd.begin(16, 2);
+}
+void loop() {
+  // ubicamos donde comenza la imprecion 
+  lcd.setCursor(2, 0);
+  // luego escribimos lo que deseamos para imprimirlo 
+  lcd.print("prueba ");
+  // repetimos lo echo anterior mente en la siguiente columna  
+  lcd.setCursor(2, 1);
+  lcd.print("lcd 12*2");
+}
