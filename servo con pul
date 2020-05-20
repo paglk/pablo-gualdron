@@ -1,0 +1,25 @@
+
+//incluimos la libreria del servo 
+#include <Servo.h> 
+int pul2 =13;   //pin del pulsador 
+Servo servomotor;
+void setup()
+{
+  pinMode (pul2,INPUT);
+  Serial.begin(9600);   // resultado
+  servomotor.attach (8); //pin del servo
+}
+void loop()
+{
+
+  if (digitalRead(pul2)== HIGH) //si se preciona el pul
+  {
+    for (int i=0;i<=180; i ++) //el servo se mueve a 180 grados 
+  {
+      servomotor.write(i); //prendemos el servo 
+   delay (50); 
+  }
+  }
+}
+
+  
